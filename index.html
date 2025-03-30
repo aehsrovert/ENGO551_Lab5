@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ENGO551 - Lab 5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Paho MQTT Client -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>ENGO551 - Lab 5: IoT Geoweb Application</h1>
+
+        <div class="connection-form">
+            <h2>Connect to MQTT Broker</h2>
+            <div class="form-group">
+                <label for="host">Host</label>
+                <input type="text" id="host" value="test.mosquitto.org">
+            </div>
+            <div class="form-group">
+                <label for="port">Port</label>
+                <input type="number" id="port" value="8080">
+            </div>
+            <div class="form-group">
+                <label for="clientId">Client ID</label>
+                <input type="text" id="clientId" value="ENGO551_Client_">
+            </div>
+            <button id="connectBtn" class="btn">Start Connection</button>
+            <p id="connectionStatus">Status: Disconnected</p>
+        </div>
+
+        <div id="map"></div>
+
+        <div class="messaging-section">
+            <h2>MQTT Messaging</h2>
+            <div class="form-group">
+                <label for="topic">Topic</label>
+                <input type="text" id="topic" placeholder="ENGO551/your_name/my_temperature">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <input type="text" id="message" placeholder="Enter your message...">
+            </div>
+            <button id="publishBtn" class="btn" disabled>Publish</button>
+            <button id="shareStatusBtn" class="btn" disabled>Share My Status</button>
+        </div>
+
+        <div class="status-messages">
+            <h3>Status Messages</h3>
+            <div id="messages"></div>
+        </div>
+    </div>
+
+    <!-- Main Application Script -->
+    <script src="application.js"></script>
+</body>
+</html>
