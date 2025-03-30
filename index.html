@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGO551 - IoT Geoweb App</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <!-- MQTT over WebSockets JavaScript client -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>IoT GeoWeb Application</h1>
+        
+        <!-- Connection Form -->
+        <div class="connection-form">
+            <h2>MQTT Connection</h2>
+            <div class="form-group">
+                <label for="host">Host:</label>
+                <input type="text" id="host" value="test.mosquitto.org">
+            </div>
+            <div class="form-group">
+                <label for="port">Port:</label>
+                <input type="number" id="port" value="8081">
+            </div>
+            <div class="form-group">
+                <label for="clientId">Client ID:</label>
+                <input type="text" id="clientId" value="web_client_">
+            </div>
+            <div class="form-group">
+                <button id="connectBtn" class="btn">Start Connection</button>
+            </div>
+            <div id="connectionStatus">Status: Disconnected</div>
+        </div>
+        
+        <!-- Message Publishing -->
+        <div class="messaging-section">
+            <h2>Publish Messages</h2>
+            <div class="form-group">
+                <label for="topic">Topic:</label>
+                <input type="text" id="topic" placeholder="ENGO551/Oreshea_Test/my_temperature">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <input type="text" id="message" placeholder="Enter message to publish">
+            </div>
+            <div class="form-group">
+                <button id="publishBtn" class="btn" disabled>Publish Message</button>
+                <button id="shareStatusBtn" class="btn" disabled>Share My Status</button>
+            </div>
+        </div>
+        
+        <!-- Map Container -->
+        <div id="map"></div>
+        
+        <!-- Status Messages -->
+        <div class="status-messages">
+            <h3>Status Messages</h3>
+            <div id="messages"></div>
+        </div>
+    </div>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
