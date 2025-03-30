@@ -76,7 +76,6 @@ connectBtn.addEventListener('click', () => {
     }
 });
 
-// In connectMQTT function - Modified SSL setting
 function connectMQTT(host, port, clientId) {
     try {
         mqttClient = new Paho.MQTT.Client(host, port, clientId);
